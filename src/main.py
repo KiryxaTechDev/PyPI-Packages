@@ -1,16 +1,14 @@
 import asyncio
 
-from lib_parser import LibParser
+from pypi_parser import *
 
 
 def main():
     """
     Основная функция для запуска парсинга библиотеки.
     """
-    url = r"https://pypi.org/project/fake-useragent/"
-
-    lib = LibParser(url)
-    print(lib.name)
+    libs = asyncio.run(Searher.search("flet"))
+    print(libs)
 
 if __name__ == "__main__":
     main()
